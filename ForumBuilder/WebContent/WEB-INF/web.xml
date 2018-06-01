@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <servlet>
+    <servlet-name>FormList</servlet-name>
+    <servlet-class>FormList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FormList</servlet-name>
+    <url-pattern>/FormList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>WizardServlet</servlet-name>
+    <servlet-class>WizardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WizardServlet</servlet-name>
+    <url-pattern>/WizardServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SubmitForm</servlet-name>
+    <servlet-class>SubmitForm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitForm</servlet-name>
+    <url-pattern>/SubmitForm</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FormSubmissions</servlet-name>
+    <servlet-class>FormSubmissions</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FormSubmissions</servlet-name>
+    <url-pattern>/FormSubmissions</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>Home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/Home</url-pattern>
+  </servlet-mapping>
+</web-app>
