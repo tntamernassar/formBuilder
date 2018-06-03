@@ -106,14 +106,14 @@ public class WizardServlet extends HttpServlet implements Servlet {
 				case 4://Telephone input
 					t = new TypeTel(id,lname);
 					break;
-				case 5:
+				case 5://Number type
 					t = new TypeNumber(id,lname);
 					break;
-					
+				case 6://Paragraph type
+					t = new TypeParagraph(id,lname);
+					break;
 					default: return;
 				}
-				
-				
 				
 				structure.add(t);
 				increaseKey();

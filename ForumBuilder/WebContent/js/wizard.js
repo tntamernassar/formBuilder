@@ -7,12 +7,14 @@ function addComponents(){
 
 	var radios = document.getElementsByName('radio');
 
-	var types = ["Text", "Color", "Date","Email","Telephone Number","Number"];
+	var types = ["Text", "Color", "Date","Email","Telephone Number","Number","Paragraph"];
 	
 	for (var i = 0, length = radios.length; i < length; i++)
 	 if (radios[i].checked)
 	  break;
 
+	
+	
 
 
 	 $.ajax({

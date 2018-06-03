@@ -79,6 +79,11 @@ body{
   			<span class="checkmark"></span>
 		</label>
 		
+		<label class="Types_container">Paragraph
+  			<input type="radio"  name="radio">
+  			<span class="checkmark"></span>
+		</label>
+		
 	</div> 
 
 	<div id="Add">

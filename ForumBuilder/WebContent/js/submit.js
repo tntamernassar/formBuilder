@@ -1,6 +1,11 @@
 function answer(id){
+
 	
-	var val = $("input[name="+id+"]").val();
+	if(id < 6)//input
+		var val = $("input[name="+id+"]").val();
+	else //text area
+		var val = $("textarea[name="+id+"]").val();
+	
 	
 	 $.ajax({
          type:'POST',

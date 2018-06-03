@@ -52,7 +52,7 @@ public class FormSubmissions extends HttpServlet {
 		T.buildHeader(structure.getTypesHeader());
 		for(Submission s : submissions) 
 			T.addRow(s);
-		
+
 	
 		request.setAttribute("table", T.toString());
 		request.setAttribute("formName", structure.father.getName());

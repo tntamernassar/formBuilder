@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sound.midi.Synthesizer;
 
 import TypesHandler.Structure;
 import TypesHandler.Type;
@@ -40,10 +41,9 @@ public class SubmitForm extends HttpServlet {
 		if(fid == null)
 			return;
 		
-		
-		Structure s = Structure.getStructure(Integer.parseInt(fid));
-		structure = s;
-		request.setAttribute("formName", s.father.getName());
+		 
+		structure = Structure.getStructure(Integer.parseInt(fid));
+		request.setAttribute("formName", structure.father.getName());
 		request.setAttribute("fid",fid);
 		request.setAttribute("structure", structure.getStructure(""));
 		RequestDispatcher view = request.getRequestDispatcher("Submit_form.jsp");  
@@ -92,6 +92,9 @@ public class SubmitForm extends HttpServlet {
 			
 			structure.father.increaseSN();
 			structure.restart();
+			
+		
+			
 			response.setContentType("text/plain");  
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write("");  

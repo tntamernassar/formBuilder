@@ -22,8 +22,10 @@ public class Structure {
 	
 	public String getStructure(String property) {
 		String result = "";
+		
 		for(Type t: structure)
 			result = result + t.getHTML(property);
+		
 		return result;
 	}
 
@@ -67,10 +69,12 @@ public class Structure {
 				case 4://Telephone input
 					t = new TypeTel(id,lname);
 					break;
-				case 5:
+				case 5://Number input
 					t = new TypeNumber(id,lname);
 					break;
-					
+				case 6://Paragraph
+					t = new TypeParagraph(id, lname);
+					break;
 					default: return null;	
 				}
 				
@@ -124,8 +128,8 @@ public class Structure {
 		      conn = (Connection) DriverManager.getConnection(DB_URL, USER, PASS);
 		      stmt = (Statement) conn.createStatement();
 
-		      String sql = "SELECT components.id,components.type,components.order,components.lable_name,forms.name AS name"
-		      		+ " FROM components INNER JOIN forms ON forms.id="+fid+" AND components.form_id=forms.id";
+		      String sql = "SELECT components.form_id,components.id,components.type,components.order,components.lable_name,forms.name AS name"
+		      		+ " FROM components INNER JOIN forms ON forms.id="+fid+" AND components.form_id="+fid;
 		      ResultSet rs = (ResultSet) ((java.sql.Statement) stmt).executeQuery(sql);
 		      boolean flag = true;
 		      while(rs.next()){
@@ -146,10 +150,12 @@ public class Structure {
 					case 4://Telephone input
 						t = new TypeTel(rs.getInt("id"),rs.getString("lable_name"));
 						break;
-					case 5:
+					case 5://Number input
 						t = new TypeNumber(rs.getInt("id"),rs.getString("lable_name"));
 						break;
-						
+					case 6:
+						t = new TypeParagraph(rs.getInt("id"),rs.getString("lable_name"));
+						break;
 						default: continue;
 		    	  }
 		    	  
@@ -157,11 +163,9 @@ public class Structure {
 		    	  t.setOrder(rs.getInt("order"));
 		    	  
 		    	  res.add(t);
-		    	  
-		    	  if(flag) {
-		    	  res.father = new Form(fid,rs.getString("name"));
-		    	  flag = false;
-		    	  }
+		    
+			      res.father = new Form(fid,rs.getString("name"));
+			    	
 		      }
 
 		      rs.close();
