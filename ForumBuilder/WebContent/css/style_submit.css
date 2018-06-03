@@ -27,6 +27,24 @@ body{
 	font-weight: 400px;
 }
 
+.home_float{
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	position:fixed;
+	width:60px;
+	height:60px;
+	top:3%;
+	left:3%;
+	background-color:#EB4040;
+	color:#fff;
+	border-radius:50px;
+	text-align:center;
+	font-size:13px;
+	text-decoration:none;
+	line-height: 60px; 
+	font-weight: 400px;
+}
+
+
 hr{
 	  border: 0;
     height: 1px;

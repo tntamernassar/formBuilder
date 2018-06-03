@@ -25,6 +25,7 @@
 <body>
 
 <a href="#" class="float" onclick="submit()"><b>Answer</b></a>
+<a href="#" class="home_float" onClick="goHome()"><b>Home</b></a>
 
 <div id="formDisplay">
 	

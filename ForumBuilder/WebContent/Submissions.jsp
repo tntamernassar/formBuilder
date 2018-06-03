@@ -26,7 +26,7 @@ body{
 
 <a href="#" class="float" onClick="goHome()"><b>Home</b></a>
 
-<div class="title_handler"><b>   ${formName}</b></div>
+<div class="title_handler"><center><b>${formName}</b></center></div>
 <div class="center_div">
 	<br />
 		<center>${table}</center>

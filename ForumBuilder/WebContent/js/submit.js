@@ -31,3 +31,7 @@ function submit(){
          }
      });
 }
+
+function goHome(){
+	document.location = "Home";
+}

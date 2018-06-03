@@ -34,7 +34,7 @@ body{
 	margin-top:4%;
 	border:0px solid #7A7A7A;
 	border-radius: 7px 7px 0px 0px;
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 0.9);
 	width:30%;
 	font-family:  Apple Chancery, cursive;
 	font-size:30px;
@@ -43,12 +43,13 @@ body{
 }
 
 .center_div{
+	display:inline-block;
 	border:0px solid #7A7A7A;
 	border-radius: 0px 7px 7px 7px;
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 0.9);
 	font-family:  Apple Chancery, cursive;
 	margin-left:1.5%;
-	
+	min-width:90%;
 }
 .t_header{
 	border-bottom: 1px solid #7A7A7A;
@@ -57,12 +58,18 @@ body{
 }
 
 .t_object {
+
     border-bottom: 1px solid #7A7A7A;
     text-align: center;
     font-size:15px;
+
 }
 
 .t_object:hover {background-color: #4B9B88;}
 
-table{border-collapse: collapse;}
+table{
+	
+	table-layout: auto;
+	border-collapse: collapse;
+}
 

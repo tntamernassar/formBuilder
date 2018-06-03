@@ -45,7 +45,7 @@ public class HTMLTable {
 	}
 	
 	private String createTable() {
-		String result="<table class=\"table\" style=\"width:"+width+"%\">";
+		String result="<table class=\"table\" >";
 		result = result + createHeader();
 		for(Rowable r : rows)
 			result = result + r.generateRow();
