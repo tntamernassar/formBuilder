@@ -1,12 +1,8 @@
 function answer(id){
 
-	
-	if(id < 6)//input
-		var val = $("input[name="+id+"]").val();
-	else //text area
-		var val = $("textarea[name="+id+"]").val();
-	
-	
+
+	var val = $("input[name="+id+"]").val();
+
 	 $.ajax({
          type:'POST',
          data:{action:"update",id:id,val:val},
@@ -17,6 +13,24 @@ function answer(id){
         	 alert("error @ addComp ="+error);
          }
      });
+}
+
+function answer_textarea(id){
+	
+	
+	var val = $("textarea[name="+id+"]").val();
+
+	 $.ajax({
+         type:'POST',
+         data:{action:"update",id:id,val:val},
+         url:'SubmitForm',
+         success:function(result){
+             
+         },error:function(request,status,error){
+        	 alert("error @ addComp ="+error);
+         }
+     });
+	
 }
 
 function submit(){

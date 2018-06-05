@@ -15,7 +15,7 @@ public class Submission implements Rowable{
 	static final String USER = "root";
 	static final String PASS = "";
 	
-	private LinkedList<Type> types;
+	private LinkedList<Type> types; //submissions data
 	
 	private int id;
 	
@@ -33,7 +33,10 @@ public class Submission implements Rowable{
 		return id;
 	}
 	
-	
+	/*
+	 * @params : 'structure'-> the form structure to retrieve compenents types
+	 * @do : initialize 'types' list  
+	 * */
 	public void getSubmissions(Structure structure) {
 		Connection conn = null;
 		Statement stmt = null;
@@ -76,7 +79,10 @@ public class Submission implements Rowable{
 		   }//end try
 	}
 	
-	
+	/*
+	 * @params : 'fid' -> requested form id
+	 * @return : form submission list executed
+	 * */
 	public static LinkedList<Submission> getSubmissions(int fid){
 		LinkedList<Submission> res = new LinkedList<Submission>();
 		
@@ -121,24 +127,17 @@ public class Submission implements Rowable{
 		return res;
 	}
 
-
-	
-	
+	/*
+	 * @return : HTML row structure
+	 * */
 	@Override
 	public String generateRow() {
 		String res = "<tr class=\"t_object\">";
-		
 		for(Type t : types) 
 			res = res + "<td>"+t.getDisplay()+"</td>\n";
-		
-		
 		return res+"</tr>";
 	}
 
 
-	@Override
-	public Object getPrimaryValue() {
-		return id;
-	}
 	
 }

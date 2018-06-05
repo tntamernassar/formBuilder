@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -13,98 +12,76 @@ import javax.sound.midi.Synthesizer;
 import TypesHandler.Structure;
 import TypesHandler.Type;
 
-/**
- * Servlet implementation class SubmitForm
- */
 @WebServlet("/SubmitForm")
 public class SubmitForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      
 	private static Structure structure;
-	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SubmitForm() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
-		String fid = request.getParameter("fid");
-		if(fid == null)
-			return;
-		
-		 
-		structure = Structure.getStructure(Integer.parseInt(fid));
-		request.setAttribute("formName", structure.father.getName());
-		request.setAttribute("fid",fid);
-		request.setAttribute("structure", structure.getStructure(""));
-		RequestDispatcher view = request.getRequestDispatcher("Submit_form.jsp");  
-        view.forward(request,response);
+	public SubmitForm() {
+		super();
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String action = request.getParameter("action");
-		
-			if(action.equals("update")) {
-			
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String fid = request.getParameter("fid"); // 'form id'
+		if (fid == null)
+			return;
+		// get 'fid' structure
+		structure = Structure.getStructure(Integer.parseInt(fid));
+		// set request data
+		request.setAttribute("formName", structure.father.getName());
+		request.setAttribute("fid", fid);
+		request.setAttribute("structure", structure.getStructure(""));
+		// set JSP GUI
+		RequestDispatcher view = request.getRequestDispatcher("Submit_form.jsp");
+		view.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String action = request.getParameter("action");// action requested
+
+		if (action.equals("update")) {// update data result
+			// get component id
 			int id = Integer.parseInt(request.getParameter("id"));
+			// get new component data
 			String newVal = request.getParameter("val");
-			for(Type t:structure.structure) {
-				
-				if(t.getId() == id) {
-					t.setResult(newVal);
-					break;
-				}
-				
+			// update structure
+			structure.update(id, newVal);
+
+		} else if (action.equals("submit")) {// submit form
+
+			// check if the submitted structure is legal (not contains any empty results)
+			if (!structure.isLegal()) {
+				// write response error
+				response.setContentType("text/plain");
+				response.setCharacterEncoding("UTF-8");
+				response.getWriter().write("es");
+				response.getWriter().close();
+				return;
 			}
-			
-		}else if(action.equals("submit")) {
-			
-			for(Type t:structure.structure) {
-				if(t.getResult() == null) {
-					response.setContentType("text/plain");  
-					response.setCharacterEncoding("UTF-8");
-					response.getWriter().write("es");  
-					response.getWriter().close();
-					return;
-				}
-			}
-			
+
+			// prepare to submit form data
 			int id = structure.father.prepareSubmission();
-			
-			
-			for(Type t:structure.structure) {
+			// submit each component
+			for (Type t : structure.structure) {
 				t.setSubmissionId(id);
 				t.submitComponent(structure.father.getId());
 			}
-			
+			// increase form submissions number
 			structure.father.increaseSN();
+			// restart the structure to the next submission
 			structure.restart();
-			
-		
-			
-			response.setContentType("text/plain");  
+			// send success message
+			response.setContentType("text/plain");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().write("");  
+			response.getWriter().write("");
 			response.getWriter().close();
-			
+
 		}
-		
-		
-		 
-		
+
 	}
 
 }

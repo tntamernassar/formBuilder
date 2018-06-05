@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1255">
-<title>Insert title here</title>
+<title>Submit ${formName}</title>
 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_submit.css" />
 	

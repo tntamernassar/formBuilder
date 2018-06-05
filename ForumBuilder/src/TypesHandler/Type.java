@@ -9,6 +9,15 @@ import com.mysql.jdbc.ResultSet;
 import com.mysql.jdbc.Statement;
 
 abstract public class Type {
+	
+	public static final int Text = 0;
+	public static final int Color = 1;
+	public static final int Date = 2;
+	public static final int Email = 3;
+	public static final int Telephone = 4;
+	public static final int Number = 5;
+	public static final int Paragraph = 6;
+	
 	static final String DB_URL = "jdbc:mysql://localhost:3306/form_builder?useUnicode=yes&characterEncoding=UTF-8";
 	static final String USER = "root";
 	static final String PASS = "";
@@ -34,11 +43,12 @@ abstract public class Type {
 		      Class.forName("com.mysql.jdbc.Driver");
 		      conn = (Connection) DriverManager.getConnection(DB_URL, USER, PASS);
 		      
-		      String sql = "INSERT INTO components VALUES('',"+getType()+","+order+",'"+labelName+"',"+form_id+")";
+		      String sql = "INSERT INTO components VALUES('',"+getType()+","+order+",?,"+form_id+")";
 		      
 		      stmt = (PreparedStatement) conn.prepareStatement(sql,
                       Statement.RETURN_GENERATED_KEYS);
 
+		      stmt.setString(1, labelName);
 		      int affectedRows = stmt.executeUpdate();
 		      
 		      
@@ -113,10 +123,12 @@ abstract public class Type {
 		      Class.forName("com.mysql.jdbc.Driver");
 		      conn = (Connection) DriverManager.getConnection(DB_URL, USER, PASS);
 		      
-		      String sql = "INSERT INTO submitions VALUES('',"+fid+",'"+result+"',"+id+","+submissionId+")";
+		      String sql = "INSERT INTO submitions VALUES('',"+fid+",?,"+id+","+submissionId+")";
 		      
 		      stmt = (PreparedStatement) conn.prepareStatement(sql,
                       Statement.RETURN_GENERATED_KEYS);
+		      
+		      stmt.setString(1, result);
 
 		      int affectedRows = stmt.executeUpdate();
 		      

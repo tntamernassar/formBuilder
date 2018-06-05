@@ -56,10 +56,6 @@ public class Form implements Rowable{
 		return result+"</tr>";
 	}
 
-	@Override
-	public Object getPrimaryValue() {
-		return id;
-	}
 	
 	//return the id of the inserted forms
 	public int insert() {
@@ -68,12 +64,13 @@ public class Form implements Rowable{
 		   try{
 		      Class.forName("com.mysql.jdbc.Driver");
 		      conn = (Connection) DriverManager.getConnection(DB_URL, USER, PASS);
-		      
-		      String sql = "INSERT INTO forms VALUES('','"+name+"',0)";
+		     
+		      String sql = "INSERT INTO forms VALUES('',?,0)";
 		      
 		      stmt = (PreparedStatement) conn.prepareStatement(sql,
                       Statement.RETURN_GENERATED_KEYS);
 
+		      stmt.setString(1, name);
 		      int affectedRows = stmt.executeUpdate();
 		      
 		      
@@ -118,13 +115,13 @@ public class Form implements Rowable{
 	public static LinkedList<Form> getForms() {
 		LinkedList<Form> res = new LinkedList<Form>();
 		Connection conn = null;
-		Statement stmt = null;
+		PreparedStatement stmt = null;
 		   try{
 		      Class.forName("com.mysql.jdbc.Driver");
 		      conn = (Connection) DriverManager.getConnection(DB_URL, USER, PASS);
-		      stmt = (Statement) conn.createStatement();
-
+		      
 		      String sql = "SELECT * FROM forms ORDER BY id ASC";
+		      stmt = (PreparedStatement) conn.prepareStatement(sql);
 		      ResultSet rs = (ResultSet) ((java.sql.Statement) stmt).executeQuery(sql);
 		      while(rs.next()){
 		        int id = rs.getInt("id");
