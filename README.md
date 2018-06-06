@@ -1,4 +1,4 @@
-Instruction to run
+Instructions to run
 ---
 
 - download [XAMPP](https://www.apachefriends.org/download.html) (7.2.5 / PHP 7.2.5	)
