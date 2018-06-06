@@ -1,19 +1,21 @@
 Instructions to run
 ---
 
-- download [XAMPP](https://www.apachefriends.org/download.html) (7.2.5 / PHP 7.2.5	)
+- download and install [XAMPP](https://www.apachefriends.org/download.html) (7.2.5 / PHP 7.2.5	)
 
-- run : Apache,MySQL,Tomcat
+- open XAMPP control panel and run : Apache,MySQL
 
-- go to folder where you installed XAMPP then tomcat>conf and edit tomcat-users.xml file in the following matter : 
+- go to the folder where you installed XAMPP then navigate to tomcat>conf and edit tomcat-users.xml file in the following matter : 
 
-    add this attribute and save : 
+    > add this attribute and save : 
 
    ```  <tomcat-users>```
 
    ```<user username="admin" password="admin" roles="manager-gui" />```
+   
+   > run tomcat in XAMPP control pannel
 
-- go to [localhost/phpmyadmin](http://localhost/phpmyadmin/)
+- in your browser go to [localhost/phpmyadmin](http://localhost/phpmyadmin/)
 
 - create new database call it 'form_builder'
 
@@ -21,11 +23,11 @@ Instructions to run
 
 - go to [localhost:8080](http://localhost:8080/)
 
-- go to Manager App (username : admin , password : admin)
+- go to Manager App, it's located in the right side of the screen (username : admin , password : admin)
 
-- go to 'WAR file to deploy' section and upload 'WAR/FormBuilder.war' (that you also can find on
+- scroll down to 'WAR file to deploy' section and upload 'WAR/FormBuilder.war' (that you also can find on
 github repo)
 
-- go to [http://localhost:8080/FormBuilder/Home](http://localhost:8080/FormBuilder/Home)
+- visit [http://localhost:8080/FormBuilder/Home](http://localhost:8080/FormBuilder/Home)
 
 - enjoy :)
