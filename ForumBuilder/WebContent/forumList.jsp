@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_home.css" />
 
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1255">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>Form List</title>
 
 <style>

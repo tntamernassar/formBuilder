@@ -47,6 +47,8 @@ public class FormSubmissions extends HttpServlet {
 		// add rows to the table
 		for (Submission s : submissions)
 			T.addRow(s);
+		//encode UTF-8 characters
+		request.setCharacterEncoding("UTF-8");
 		// send the table structure via request
 		request.setAttribute("table", T.toString());
 		// send 'fid' form name

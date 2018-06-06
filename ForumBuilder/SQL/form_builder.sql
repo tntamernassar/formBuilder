@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2018 at 04:38 PM
+-- Generation Time: Jun 06, 2018 at 08:27 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -32,7 +32,7 @@ CREATE TABLE `components` (
   `id` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `order` int(11) NOT NULL,
-  `lable_name` text NOT NULL,
+  `lable_name` text CHARACTER SET utf8 NOT NULL,
   `form_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -44,7 +44,7 @@ CREATE TABLE `components` (
 
 CREATE TABLE `forms` (
   `id` int(11) NOT NULL,
-  `name` text NOT NULL,
+  `name` text CHARACTER SET utf8 NOT NULL,
   `sn` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -68,7 +68,7 @@ CREATE TABLE `submissions` (
 CREATE TABLE `submitions` (
   `id` int(11) NOT NULL,
   `fid` int(11) NOT NULL,
-  `value` text NOT NULL,
+  `value` text CHARACTER SET utf8 NOT NULL,
   `qid` int(11) NOT NULL,
   `subid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -109,25 +109,25 @@ ALTER TABLE `submitions`
 -- AUTO_INCREMENT for table `components`
 --
 ALTER TABLE `components`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `forms`
 --
 ALTER TABLE `forms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `submissions`
 --
 ALTER TABLE `submissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `submitions`
 --
 ALTER TABLE `submitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
