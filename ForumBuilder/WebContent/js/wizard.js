@@ -22,6 +22,7 @@ function addComponents(){
          success:function(result){
              $('#current_form_display').html("");
              $('#current_form_display').html(result);
+             scroll();
          },error:function(request,status,error){
         	 alert("error @ addComp ="+error);
          }
@@ -78,5 +79,9 @@ function publish(){
 
 function goHome(){
 	document.location = "Home";
+}
+
+function scroll(){
+	window.scrollTo(0,document.body.scrollHeight);
 }
 
