@@ -1,17 +1,17 @@
 Instruction to run
 ---
 
-- download [XAMPP](https://www.apachefriends.org/download.html)
+- download [XAMPP](https://www.apachefriends.org/download.html) (7.2.5 / PHP 7.2.5	)
 
 - run : Apache,MySQL,Tomcat
 
 - go to folder where you installed XAMPP then tomcat>conf and edit tomcat-users.xml file in the following matter : 
 
- add this attribute and save : 
+    add this attribute and save : 
 
-```  <tomcat-users>```
+   ```  <tomcat-users>```
 
-```<user username="admin" password="admin" roles="manager-gui" />```
+   ```<user username="admin" password="admin" roles="manager-gui" />```
 
 - go to [localhost/phpmyadmin](http://localhost/phpmyadmin/)
 
