@@ -22,7 +22,7 @@ function addComponents(){
          success:function(result){
              $('#current_form_display').html("");
              $('#current_form_display').html(result);
-       //      scroll();
+             scroll();
          },error:function(request,status,error){
         	 alert("error @ addComp ="+error);
          }
