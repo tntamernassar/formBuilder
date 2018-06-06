@@ -1,27 +1,31 @@
-#download XAMPP : https://www.apachefriends.org/download.html
+Instruction to run
+---
 
-#run : Apache,MySQL,Tomcat
+- download [XAMPP](https://www.apachefriends.org/download.html)
 
-#go to folder where you installed XAMPP then tomcat>conf and edit tomcat-users.xml file in the following matter : 
+- run : Apache,MySQL,Tomcat
 
-#add this attribute and save : 
+- go to folder where you installed XAMPP then tomcat>conf and edit tomcat-users.xml file in the following matter : 
 
-   <tomcat-users>
-		<user username="admin" password="admin" roles="manager-gui" />
-		
-		
-#go to http://localhost/phpmyadmin/
+ add this attribute and save : 
 
-#create new database call it 'form_builder'
+```  <tomcat-users>```
 
-#import 'SQL/form_builder.sql'(that you can find on github repo)i nto form_builder database
+```<user username="admin" password="admin" roles="manager-gui" />```
 
-#go to http://localhost:8080/
+- go to [localhost/phpmyadmin](http://localhost/phpmyadmin/)
 
-#go to Manager App (username : admin , password : admin)
+- create new database call it 'form_builder'
 
-#go to 'WAR file to deploy' section and upload 'WAR/ForumBuilder.war'(that you also can find on github repo)
+- import 'SQL/form_builder.sql'(that you can find on github repo) into form_builder database
 
-#go to http://localhost:8080/FormBuilder/Home 
+- go to [localhost:8080](http://localhost:8080/)
 
-#enjoy :)
+- go to Manager App (username : admin , password : admin)
+
+- go to 'WAR file to deploy' section and upload 'WAR/ForumBuilder.war' (that you also can find on
+github repo)
+
+- go to [http://localhost:8080/FormBuilder/Home](http://localhost:8080/FormBuilder/Home)
+
+- enjoy :)
