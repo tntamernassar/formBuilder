@@ -13,8 +13,6 @@ function addComponents(){
 	 if (radios[i].checked)
 	  break;
 
-	
-	
 
 
 	 $.ajax({
@@ -76,5 +74,9 @@ function publish(){
        	 alert("error @Delete ="+error);
         }
     });
+}
+
+function goHome(){
+	document.location = "Home";
 }
 

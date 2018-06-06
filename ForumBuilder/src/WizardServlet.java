@@ -42,7 +42,6 @@ public class WizardServlet extends HttpServlet implements Servlet {
 			String action = request.getParameter("action");
 
 			if (action.equals("publish")) {// publish current structure
-
 				if (structure.isEmpty()) {
 					// send error message back to AJAX
 					response.setContentType("text/plain");
@@ -51,13 +50,10 @@ public class WizardServlet extends HttpServlet implements Servlet {
 					response.getWriter().close();
 					return;
 				}
-
 				String formName = request.getParameter("fname");
-
 				// insert form to db
 				Form f = new Form(-1, formName);
 				f.setId(f.insert());
-
 				// JDBC/CLASS.forName ERROR
 				if (f.getId() == -1)
 					throw new RuntimeException("Adding form failed , id return : -1");
@@ -65,7 +61,6 @@ public class WizardServlet extends HttpServlet implements Servlet {
 				structure.publish(f.getId());
 				// restart structure for the next wizard
 				structure.restart();
-
 			} else if (action.equals("remove")) {// remove component
 				int id = Integer.parseInt(request.getParameter("id"));
 				// delete requested component

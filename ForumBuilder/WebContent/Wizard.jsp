@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1255">
-<title>Insert title here</title>
+<title>Create you form</title>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_wizard.css" />
 
@@ -25,7 +25,7 @@ body{
 <body>
 
 <a href="#" class="float" onClick="publish()"><b>Publish</b></a>
-
+<a href="#" class="homefloat" onClick="goHome()"><b>Home</b></a>
 <div id="handler">
 
 <div id="container">

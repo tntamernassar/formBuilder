@@ -55,9 +55,7 @@ public class Structure {
 				t.setResult(newVal);
 				break;
 			}
-
 		}
-
 	}
 
 	public boolean isLegal() {
@@ -177,11 +175,8 @@ public class Structure {
 				default:
 					continue;
 				}
-
 				t.setOrder(rs.getInt("order"));
-
 				res.add(t);
-
 				res.father = new Form(fid, rs.getString("name"));
 
 			}

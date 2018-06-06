@@ -27,7 +27,14 @@ public class FormSubmissions extends HttpServlet {
 		if (fid == null)
 			return;
 		// get 'fid' structure
-		structure = Structure.getStructure(Integer.parseInt(fid));
+		try {
+			structure = Structure.getStructure(Integer.parseInt(fid));
+		}catch(Exception e) {
+			return;
+		}
+		//wrong fid given(not found)
+		if(structure ==  null) 
+			return;
 		// get 'fid' submissions
 		submissions = Submission.getSubmissions(Integer.parseInt(fid));
 		// get 'fid' submissions data

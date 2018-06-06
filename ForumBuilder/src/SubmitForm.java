@@ -28,7 +28,13 @@ public class SubmitForm extends HttpServlet {
 		if (fid == null)
 			return;
 		// get 'fid' structure
-		structure = Structure.getStructure(Integer.parseInt(fid));
+		try{
+			structure = Structure.getStructure(Integer.parseInt(fid));
+		}catch(Exception e) {
+			return;
+		}
+		if(structure == null)
+			return;
 		// set request data
 		request.setAttribute("formName", structure.father.getName());
 		request.setAttribute("fid", fid);
@@ -53,7 +59,7 @@ public class SubmitForm extends HttpServlet {
 
 		} else if (action.equals("submit")) {// submit form
 
-			// check if the submitted structure is legal (not contains any empty results)
+			// check if the submitted structure is legal (not containing any empty results)
 			if (!structure.isLegal()) {
 				// write response error
 				response.setContentType("text/plain");

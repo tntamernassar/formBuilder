@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_home.css" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1255">
-<title>Forum List</title>
+<title>Form List</title>
 
 <style>
 body {
