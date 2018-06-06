@@ -21,8 +21,15 @@ public class Home extends HttpServlet {
 			throws ServletException, IOException {
 		HTMLTable T = new HTMLTable(5);
 		T.buildHeader("Form Id", "Form Name", "#Submissions", "Submit Page", "Submitions Page");
-		for (Form f : Form.getForms())
+		int i=0;
+		for (Form f : Form.getForms()) {
 			T.addRow(f);
+			i++;
+		}
+		String msg = "";
+		if(i == 0)
+			msg = "<b>Welcome to form Builder , to add a form press the '+' button in upper right corner :)</b> <br></br>";
+		request.setAttribute("msg", msg);
 		request.setAttribute("table", T.toString());
 		RequestDispatcher view = request.getRequestDispatcher("forumList.jsp");
 		view.forward(request, response);

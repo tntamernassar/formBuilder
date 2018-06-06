@@ -1,13 +1,11 @@
 package TypesHandler;
-
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
-import com.mysql.jdbc.Statement;
+
 
 public class Structure {
 

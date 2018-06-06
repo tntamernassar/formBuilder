@@ -31,6 +31,7 @@ body {
 	<br/>
 		${table}
 	<br/>
+	${msg}
 	</div>
 	
 	</center>
