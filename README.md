@@ -23,7 +23,7 @@ Instructions to run
 
 - go to Manager App (username : admin , password : admin)
 
-- go to 'WAR file to deploy' section and upload 'WAR/ForumBuilder.war' (that you also can find on
+- go to 'WAR file to deploy' section and upload 'WAR/FormBuilder.war' (that you also can find on
 github repo)
 
 - go to [http://localhost:8080/FormBuilder/Home](http://localhost:8080/FormBuilder/Home)
